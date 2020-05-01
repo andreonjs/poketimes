@@ -1,12 +1,44 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import Pokeball from '../pokeball.png'
+import { connect } from 'react-redux'
 
-const Home = () => {
+class Home extends Component {
+  render(){
+    const { posts } = this.props
+    const postList = posts.length ? (
+      posts.map(post => {
+        return (
+          <div className="post card" key={post.id}>
+            <img src={Pokeball} alt="A Pokeball" />
+            <div className="card-content">
+              <Link to={'/' + post.id}>
+                <span className="card-title red-text">{post.title}</span>
+              </Link>
+              <p>{post.body}</p>
+            </div>
+          </div>
+        )
+      })
+    ) : (
+      <div className="center">No posts to show</div>
+    );
+
     return (
-        <div className="container">
-            <h4 className="center">Home</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      <div>
+        <div className="container home">
+          <h4 className="center">Home</h4>
+          {postList}
         </div>
+      </div>
     )
+  }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts
+  }
+}
+
+export default connect(mapStateToProps)(Home)

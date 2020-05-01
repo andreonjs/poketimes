@@ -1,13 +1,14 @@
 import React from 'react'
-import Rainbow from '../hoc/Rainbow'
 
 const About = () => {
-    return (
-        <div className="container">
-            <h4 className="center">About</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        </div>
-    )
+  return (
+    <div>
+      <div className="container">
+        <h4 className="center">About</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae repudiandae repellat illo magni eligendi cupiditate voluptates eius nam voluptate. Incidunt nihil ullam quae quia officia quaerat, deserunt eligendi explicabo totam?</p>
+      </div>
+    </div>
+  )
 }
 
-export default Rainbow(About)
+export default About
